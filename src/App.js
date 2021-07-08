@@ -1,32 +1,17 @@
-import { useState } from 'react';
 import Grid from '@material-ui/core/Grid';
 import './App.css';
 import DiaryCard from './components/DiaryCard';
 import DiaryHome from './components/DiaryHome';
+import {useSelector} from 'react-redux';
 
 
 
 function App() {
-  const[ notes , setNotes ] = useState([
-    // {
-    //   tittle: 'This is task 1',
-    //   description: 'this is the descriptin of task 1'
-    // },
-    // {
-    //   tittle: 'Task2',
-    //   description: 'this is the description of task 2'
-    // }
-  ]);
 
-  const addTask = (task) => {
-    const id = Math.floor(Math.random() * 10000)+1
-    const newTask = {id, ...task}
-    setNotes([...notes, newTask])
-  }
-
+  const notes = useSelector(state=>state.notes)
   return (
     <container>
-      <DiaryHome onAdd={addTask}/>
+      <DiaryHome />
       {notes.length > 0 ?
       (<Grid container spacing={1}>
         {notes.map((note)=>(

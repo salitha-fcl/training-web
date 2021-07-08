@@ -1,6 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 import { TextField , InputBase, Button } from '@material-ui/core'
 import { useState } from 'react';
+import {useDispatch} from 'react-redux';
 
 const useStyles = makeStyles({
     root:{
@@ -22,10 +23,11 @@ const useStyles = makeStyles({
 })
 
 
-const DiaryHome = ( { onAdd }) => {
+const DiaryHome = () => {
     const classes = useStyles()
     const [tittle , setTittle] = useState('');
     const [description , setDescription] = useState('');
+    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -39,7 +41,9 @@ const DiaryHome = ( { onAdd }) => {
             return
         }
 
-        onAdd({tittle , description})
+        const id = Math.floor(Math.random() * 10000)+1
+
+        dispatch({type:"ADD_NOTE", payload:{id, tittle , description}})
         setTittle('')
         setDescription('')
     }
@@ -77,10 +81,9 @@ const DiaryHome = ( { onAdd }) => {
                     SUBMIT
                 </Button>
             </form>
-            {/* {notes.length > 0 ? (<DiaryCard tittle='Hello world' subtitle='subtitle' color='red' description='simple text'/>) : ('No Notes')} */}
         </>
      );
 }
- 
-export default DiaryHome;
+
+export default DiaryHome
 
