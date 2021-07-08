@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import {Card,  CardActions, CardContent, Typography, Button, Box  } from "@material-ui/core";
+import {
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+  Button,
+  Box,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 export default function DiaryCard({ title, subtitle, description }) {
@@ -12,22 +19,23 @@ export default function DiaryCard({ title, subtitle, description }) {
         ? description.slice(0, 100) + "..."
         : description
       : description;
-  const onClick = () => {
+  // const onClick = () => {
+  //   setShowMore(!showMore);
+  // };
+
+  function showMoreClick() {
     setShowMore(!showMore);
-  };
- 
+  }
+
   return (
-    <Box p={1} >
+    <Box p={1}>
       <Card className={classes.root} variant="outlined">
         <CardContent>
-          <Typography 
-          variant="h5" 
-          component="h2"
-          >
-           {title}
+          <Typography variant="h5" component="h2">
+            {title}
           </Typography>
           <Typography
-            className={classes.title} 
+            className={classes.title}
             color="textSecondary"
             gutterBottom
           >
@@ -38,18 +46,19 @@ export default function DiaryCard({ title, subtitle, description }) {
           </Typography>
         </CardContent>
         <CardActions>
-        {description.length > 100 ? (    
-          <Button className={classes.btn}
-            text={showMore?"read more":"read less"}
-            onClick={onClick}
-          />
-        ) : (
-          ""
-        )}
-      </CardActions>
+          {description.length > 100 ? (
+            <Button
+              className={classes.btn}
+              text={showMore ? "read more" : "read less"}
+              onClick={showMoreClick}
+            />
+          ) : (
+            ""
+          )}
+        </CardActions>
       </Card>
     </Box>
-  )
+  );
 }
 
 DiaryCard.defaultProps = {
@@ -74,17 +83,10 @@ const useStyles = makeStyles({
     borderRadius: 15,
     color: "white",
   },
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)",
-  },
   title: {
     fontSize: 14,
   },
   pos: {
     marginBottom: 12,
   },
-  des: {},
 });
-
