@@ -1,9 +1,9 @@
 import React from 'react'
 import { Col, Container, Navbar, Row, Spinner } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
-import logo from '../assets/logo.svg'
-import profile from '../assets/profile.svg'
-import unknown from '../assets/unknown.svg'
+import logo from '../../assets/logo.svg'
+import profile from '../../assets/profile.svg'
+import unknown from '../../assets/unknown.svg'
 
 const Header = () => {
   const login = useSelector(state => state.login)
@@ -19,7 +19,7 @@ const Header = () => {
                 className="d-inline-block align-top nav-logo"
                 alt="DD"
             />
-            Dear Diary
+            Dear Diary {process.env.NAME} xx
             {
               isLoading && (<Spinner animation="border" className={'spinner'}/>)
             }

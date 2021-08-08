@@ -1,7 +1,7 @@
 import React, { } from 'react'
 import { Button, Col, FormControl, Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { login, randomName, setName } from '../actions/login'
+import { login, randomName, setName } from '../utils/actions/login'
 
 import { useHistory } from 'react-router-dom/cjs/react-router-dom'
 

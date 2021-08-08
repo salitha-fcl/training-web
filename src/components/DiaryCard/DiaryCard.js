@@ -2,7 +2,7 @@ import { Card, Col, Row } from 'react-bootstrap'
 import React, { useState } from 'react'
 import { FaTrash } from 'react-icons/fa'
 import { useDispatch } from 'react-redux'
-import { removeDiaryCard } from '../actions/diaryCard'
+import { removeDiaryCard } from '../../utils/actions/diaryCard'
 import PropTypes from 'prop-types'
 
 const DiaryCard = ({ id, title, name, description }) => {
@@ -31,9 +31,12 @@ const DiaryCard = ({ id, title, name, description }) => {
         <Card.Title className={'p-3 pb-0'}>
           <Row>
             <Col className={'col-10'}>{title}</Col>
-            <Col className={'col-auto'}><FaTrash color="#b25b8f"
-                                                 className={'card-trash'}
-                                                 onClick={() => onCardDeleteClick()}/></Col>
+            <Col className={'col-auto'}>
+              <FaTrash color="#b25b8f"
+                       className={'card-trash'}
+                       onClick={() => onCardDeleteClick()}
+              />
+            </Col>
           </Row>
         </Card.Title>
         <Card.Subtitle

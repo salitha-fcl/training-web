@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { CardGroup, Col, Row } from 'react-bootstrap'
-import NewCardForm from '../Components/NewCardForm'
-import DiaryCard from '../Components/DiaryCard'
+import NewCardForm from '../Components/NewCardForm/NewCardForm'
+import DiaryCard from '../Components/DiaryCard/DiaryCard'
 
 import { useDispatch, useSelector } from 'react-redux'
 
-import { startDiaryNotesFirestoreSync } from '../actions/firestore'
+import { startDiaryNotesFirestoreSync } from '../utils/actions/firestore'
 
 function DiaryHome () {
   const diaryCardsList = useSelector(state => state.diaryCards)
