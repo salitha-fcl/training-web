@@ -19,7 +19,7 @@ const Header = () => {
                 className="d-inline-block align-top nav-logo"
                 alt="DD"
             />
-            Dear Diary {process.env.NAME} xx
+            Dear Diary
             {
               isLoading && (<Spinner animation="border" className={'spinner'}/>)
             }

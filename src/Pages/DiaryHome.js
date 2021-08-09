@@ -20,7 +20,7 @@ function DiaryHome () {
           <NewCardForm/>
           <CardGroup className={'justify-content-center m-3'}>
             {
-              diaryCardsList && diaryCardsList.map(i => (
+              Array.isArray(diaryCardsList) && diaryCardsList.sort((a, b) => a.createdAt - b.createdAt).map(i => (
                   <DiaryCard
                       key={i.id}
                       id={i.id}

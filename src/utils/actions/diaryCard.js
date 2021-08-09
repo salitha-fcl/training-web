@@ -5,7 +5,8 @@ export const addDiaryCard = ({ title, name, description }) => ({
   payload: {
     title: title,
     name: name,
-    description: description
+    description: description,
+    createdAt: new Date()
   }
 })
 

@@ -57,6 +57,7 @@
     border-radius: 25px !important;
     height: 30vh;
     min-width: 500px;
+    max-width: 800px!important;
     width: auto;
     overflow: hidden;
 }
@@ -76,13 +77,6 @@
 .button-login:hover {
     background: linear-gradient(to right top, #0e5b50, #449171) !important;
     box-shadow: 0 0 10px 1px #d6f8d6;
-}
-
-.login-card-header {
-    overflow: hidden;
-    background: rgba(30, 149, 145, 0.8);
-    padding: 5px;
-    margin: 0 0 20px;
 }
 
 .login-card-header {

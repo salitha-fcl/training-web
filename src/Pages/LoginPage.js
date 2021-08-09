@@ -16,8 +16,10 @@ function LoginPage () {
     dispatch(setName(name))
   }
   const onLoginClicked = () => {
-    if (username.length > 0) { dispatch(login(username)) }
-    history.push('/')
+    if (username && username.length > 0) {
+      dispatch(login(username))
+      history.push('/')
+    }
   }
 
   const onRandomClicked = () => {
@@ -27,7 +29,7 @@ function LoginPage () {
 
   return (
       <Row className={'justify-content-center align-items-center p-3 vh-100'}>
-        <Col className={'col-6 login-form '}>
+        <Col className={'login-form p-0 m-0'}>
           <Row className={'login-card-header justify-content-center'}>
             <Col className={'col-auto'}>
               <h3 className={'login-card-header-fonts'}>

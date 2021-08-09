@@ -12,7 +12,8 @@ function createDiaryNotesChannel () {
   return eventChannel(
     emit => {
       return firestore.collection('DiaryNotes')
-        .where('name', '!=', '')
+        .where('createdAt', '!=', '')
+        .orderBy('createdAt')
         .onSnapshot(querySnapshot => {
           const allDocs = []
           querySnapshot.docs.forEach(doc => {
