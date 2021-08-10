@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap'
 import { BrowserRouter, Route } from 'react-router-dom'
 import DiaryHome from './Pages/DiaryHome'
 import LoginPage from './Pages/LoginPage'
-import Header from './components/Header'
+import Header from './Components/Header/Header'
 import { useSelector } from 'react-redux'
 
 function App () {
