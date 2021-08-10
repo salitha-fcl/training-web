@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { CardGroup, Col, Row } from 'react-bootstrap'
-import NewCardForm from '../Components/NewCardForm/NewCardForm'
-import DiaryCard from '../Components/DiaryCard/DiaryCard'
+import NewCardForm from '../components/NewCardForm'
+import DiaryCard from '../components/DiaryCard'
 
 import { useDispatch, useSelector } from 'react-redux'
 
-import { startDiaryNotesFirestoreSync } from '../utils/actions/firestore'
+import { startDiaryNotesFirestoreSync } from '../actions/firestore'
 
 function DiaryHome () {
   const diaryCardsList = useSelector(state => state.diaryCards)
@@ -20,7 +20,7 @@ function DiaryHome () {
           <NewCardForm/>
           <CardGroup className={'justify-content-center m-3'}>
             {
-              Array.isArray(diaryCardsList) && diaryCardsList.sort((a, b) => a.createdAt - b.createdAt).map(i => (
+              diaryCardsList && diaryCardsList.map(i => (
                   <DiaryCard
                       key={i.id}
                       id={i.id}
